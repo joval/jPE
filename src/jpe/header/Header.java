@@ -40,18 +40,17 @@ public class Header {
     private VarFileInfo varFileInfo;
 
     public Header(IFile file) throws IllegalArgumentException, IOException {
-	resources = new TreeHash<Object>("ImageResourceDirs", "/");
 	if (file.isFile()) {
 	    if (file.length() == 0) {
 		throw new IllegalArgumentException("Zero length: " + file.getPath());
 	    }
-
 	    IRandomAccess ra = null;
 	    try {
 		ra = file.getRandomAccess("r");
 		dosHeader = new ImageDOSHeader(ra);
 		ra.seek((long)dosHeader.getELFHeaderRVA());
 		ntHeader = new ImageNTHeaders(ra);
+		resources = new TreeHash<Object>("ImageResourceDirs", "/");
 		long rba = ntHeader.getResourceBaseAddress(ImageDataDirectory.RESOURCE_TABLE);
 		if (rba == 0) {
 		    //
