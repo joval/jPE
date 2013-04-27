@@ -73,4 +73,4 @@ $(BUILD)/%/:
 	mkdir -p $(subst PKG,,$@)
 
 test:
-	$(JAVA) -Djava.library.path=$(JSAF_PROVIDER)/$(LIBDIR) -classpath $(RUNTIMECP) jpe.test.PE "C:\\Windows\\System32\\notepad.exe"
+	$(JAVA) -Djava.library.path=$(JSAF_PROVIDER)/$(LIBDIR) -classpath $(RUNTIMECP) jpe.test.PE "%SystemRoot%\\notepad.exe"

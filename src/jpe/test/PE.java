@@ -13,6 +13,9 @@ import jsaf.intf.system.ISession;
 import jsaf.provider.SessionFactory;
 
 import jpe.header.Header;
+import jpe.header.ImageOptionalHeader;
+import jpe.header.ImageOptionalHeader32;
+import jpe.header.ImageOptionalHeader64;
 import jpe.resource.version.VsFixedFileInfo;
 import jpe.resource.version.VsVersionInfo;
 import jpe.util.LanguageConstants;
@@ -44,10 +47,10 @@ public class PE {
     }
 
     public void test(String path) {
-	System.out.println("Scanning file... " + path);
 	IFilesystem fs = session.getFilesystem();
 	try {
 	    IFile f = fs.getFile(path);
+	    System.out.println("Scanning file... " + f.getPath());
 	    readPEHeader(f);
 
 //	    Header header = new Header(f);
@@ -62,11 +65,19 @@ public class PE {
      */
     public void readPEHeader(IFile file) throws Exception {
 	Header header = new Header(file);
+	ImageOptionalHeader ioh = header.getNTHeader().getImageOptionalHeader();
+	if (ioh instanceof ImageOptionalHeader32) {
+	    System.out.println("   Instruction Set: 32-bit");
+	} else if (ioh instanceof ImageOptionalHeader64) {
+	    System.out.println("   Instruction Set: 64-bit");
+	} else {
+	    System.out.println("   Instruction Set: Unknown class " + ioh.getClass().getName());
+	}
 
 	//
 	// Get the MS Checksum from the NT headers
 	//
-	System.out.println("       MS Checksum: " + header.getNTHeader().getImageOptionalHeader().getChecksum());
+	System.out.println("       MS Checksum: " + ioh.getChecksum());
 
 	//
 	// Get the version information string table, in the default language
