@@ -11,7 +11,6 @@
 # JAVA_HOME is where you've installed your JDK.
 #
 JAVA_HOME=$(TOP)/../../tools/jdk1.6.0_26
-#JAVA_HOME=$(TOP)/../../tools/jdk1.7.0_03
 
 #
 # JSAF_HOME is the location of the jSAF FOSS git repository
