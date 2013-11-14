@@ -9,6 +9,7 @@ import java.util.Hashtable;
 import jsaf.JSAFSystem;
 import jsaf.intf.io.IFile;
 import jsaf.intf.io.IFilesystem;
+import jsaf.intf.system.IComputerSystem;
 import jsaf.intf.system.ISession;
 import jsaf.provider.SessionFactory;
 
@@ -40,10 +41,10 @@ public class PE {
 	}
     }
 
-    ISession session;
+    IComputerSystem session;
 
     public PE(ISession session) {
-	this.session = session;
+	this.session = (IComputerSystem)session;
     }
 
     public void test(String path) {
