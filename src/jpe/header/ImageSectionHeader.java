@@ -12,7 +12,7 @@ import java.nio.charset.UnsupportedCharsetException;
 
 import jsaf.intf.io.IRandomAccess;
 import jsaf.io.LittleEndian;
-import jsaf.io.StreamTool;
+import jsaf.io.Streams;
 
 /**
  * See http://msdn.microsoft.com/en-us/library/ms680341%28VS.85%29.aspx
@@ -45,7 +45,7 @@ public class ImageSectionHeader {
 
     public void debugPrint(PrintStream out) {
 	out.println("RAW Buffer for IMAGE_SECTION_HEADER:");
-	StreamTool.hexDump(buff, out);
+	Streams.hexDump(buff, out);
 
 	out.println("IMAGE_SECTION_HEADER:");
 	out.println("  name:                 " + name);

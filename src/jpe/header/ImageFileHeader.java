@@ -11,7 +11,7 @@ import java.util.Date;
 
 import jsaf.intf.io.IRandomAccess;
 import jsaf.io.LittleEndian;
-import jsaf.io.StreamTool;
+import jsaf.io.Streams;
 
 /**
  * See http://msdn.microsoft.com/en-us/library/ms680313%28v=vs.85%29.aspx
@@ -34,7 +34,7 @@ public class ImageFileHeader {
 
     public ImageFileHeader(InputStream in) throws IOException {
 	buff = new byte[BUFFER_SIZE];
-	StreamTool.readFully(in, buff);
+	Streams.readFully(in, buff);
 	loadFromBuffer();
     }
 
@@ -46,7 +46,7 @@ public class ImageFileHeader {
 
     public void debugPrint(PrintStream out) {
 	out.println("RAW Buffer for IMAGE_FILE_HEADER:");
-	StreamTool.hexDump(buff, out);
+	Streams.hexDump(buff, out);
 	out.println("IMAGE_FILE_HEADER:");
 	out.println("  machine: " + LittleEndian.toHexString(machine));
 	out.println("  numberOfSections: " + LittleEndian.toHexString(numberOfSections));

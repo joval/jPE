@@ -12,8 +12,6 @@ import java.util.Stack;
 import java.util.Vector;
 import java.util.regex.Pattern;
 
-import jsaf.util.StringTools;
-
 import jpe.intf.tree.INode;
 import jpe.intf.tree.ITree;
 

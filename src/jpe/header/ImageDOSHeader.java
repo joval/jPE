@@ -9,7 +9,7 @@ import java.io.PrintStream;
 
 import jsaf.intf.io.IRandomAccess;
 import jsaf.io.LittleEndian;
-import jsaf.io.StreamTool;
+import jsaf.io.Streams;
 
 /**
  * Reads the first 64-bytes of a Portable Executable (PE) format-file, which is the MS-DOS header.
@@ -48,7 +48,7 @@ public class ImageDOSHeader {
      */
     public ImageDOSHeader(InputStream in) throws IOException {
 	buff = new byte[BUFFER_SIZE];
-	StreamTool.readFully(in, buff);
+	Streams.readFully(in, buff);
 	loadFromBuffer();
     }
 
@@ -67,7 +67,7 @@ public class ImageDOSHeader {
 
     public void debugPrint(PrintStream out) {
 	out.println("RAW Buffer for IMAGE_DOS_HEADER:");
-	StreamTool.hexDump(buff, out);
+	Streams.hexDump(buff, out);
 
 	out.println("IMAGE_DOS_HEADER:");
 	out.println("  e_magic:    " + LittleEndian.toHexString(e_magic));

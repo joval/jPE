@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Vector;
 
-import jsaf.util.StringTools;
+import jsaf.util.Strings;
 
 import jpe.intf.tree.IForest;
 import jpe.intf.tree.INode;
@@ -127,19 +127,19 @@ public class TreeHash<T> {
 	    int ptr = path.indexOf(delim);
 	    if (ptr > 0) {
 		rootName = path.substring(0, ptr);
-		tokens = StringTools.toList(StringTools.tokenize(path.substring(ptr), delim));
+		tokens = Strings.toList(Strings.tokenize(path.substring(ptr), delim));
 	    } else if (ptr == 0) {
 		//
 		// This is the special case of the root node whose name is the delimiter
 		//
 		rootName = delim;
-		tokens = StringTools.toList(StringTools.tokenize(path.substring(delim.length()), delim));
+		tokens = Strings.toList(Strings.tokenize(path.substring(delim.length()), delim));
 	    } else {
 		rootName = path;
 		tokens = new Vector<String>();
 	    }
 	} else {
-	    tokens = StringTools.toList(StringTools.tokenize(path.substring(matchLen), delim));
+	    tokens = Strings.toList(Strings.tokenize(path.substring(matchLen), delim));
 	}
 
 	Tree root = null;

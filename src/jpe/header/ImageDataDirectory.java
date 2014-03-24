@@ -10,7 +10,6 @@ import java.nio.charset.Charset;
 import java.nio.charset.IllegalCharsetNameException;
 import java.nio.charset.UnsupportedCharsetException;
 
-import jsaf.io.StreamTool;
 import jsaf.io.LittleEndian;
 
 /**

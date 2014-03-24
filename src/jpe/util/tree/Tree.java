@@ -13,7 +13,7 @@ import java.util.Stack;
 import java.util.Vector;
 import java.util.regex.Pattern;
 
-import jsaf.util.StringTools;
+import jsaf.util.Strings;
 
 import jpe.intf.tree.INode;
 import jpe.intf.tree.ITree;
@@ -137,7 +137,7 @@ public class Tree extends Node implements ITree {
 	    return this;
 	} else if (path.startsWith(rootPath())) {
 	    String subpath = path.substring(rootPath().length());
-	    Iterator<String> iter = StringTools.tokenize(subpath, forest.getDelimiter());
+	    Iterator<String> iter = Strings.tokenize(subpath, forest.getDelimiter());
 	    if (iter.hasNext()) {
 		try {
 		    Node next = this;

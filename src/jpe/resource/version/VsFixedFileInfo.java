@@ -8,7 +8,6 @@ import java.io.PrintStream;
 
 import jsaf.intf.io.IRandomAccess;
 import jsaf.io.LittleEndian;
-import jsaf.io.StreamTool;
 
 import jpe.util.Version;
 

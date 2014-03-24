@@ -11,8 +11,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import jsaf.intf.io.IRandomAccess;
-import jsaf.io.StreamTool;
 import jsaf.io.LittleEndian;
+import jsaf.io.Streams;
 
 /**
  * See http://msdn.microsoft.com/en-us/library/ms680339%28v=vs.85%29.aspx
@@ -42,7 +42,7 @@ public class ImageOptionalHeader32 extends ImageOptionalHeader {
 
     public void debugPrint(PrintStream out) {
 	out.println("RAW Buffer for IMAGE_OPTIONAL_HEADER32:");
-	StreamTool.hexDump(buff, out);
+	Streams.hexDump(buff, out);
 	out.println("IMAGE_OPTIONAL_HEADER32:");
 	out.println("  magic: " + LittleEndian.toHexString(magic));
 	out.println("  majorLinkerVersion: " + LittleEndian.toHexString(majorLinkerVersion));

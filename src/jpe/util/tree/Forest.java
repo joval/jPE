@@ -14,8 +14,6 @@ import java.util.NoSuchElementException;
 import java.util.Vector;
 import java.util.regex.Pattern;
 
-import jsaf.util.StringTools;
-
 import jpe.intf.tree.IForest;
 import jpe.intf.tree.ITree;
 import jpe.intf.tree.INode;

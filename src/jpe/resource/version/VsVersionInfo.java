@@ -12,7 +12,6 @@ import java.util.Vector;
 
 import jsaf.intf.io.IRandomAccess;
 import jsaf.io.LittleEndian;
-import jsaf.io.StreamTool;
 
 /**
  * VsVersionInfo data structure.
@@ -55,8 +54,7 @@ public class VsVersionInfo {
 	    value = new VsFixedFileInfo(buff);
 	}
 
-//DAS: this class worked fine without reading for padding here
-padding2 = LittleEndian.read32BitAlignPadding(ra);
+	padding2 = LittleEndian.read32BitAlignPadding(ra);
         stringTables = new Hashtable<String, Hashtable<String, String>>();
 	for (int i=0; i < 2; i++) {
 	    short childLength = LittleEndian.readUShort(ra);
