@@ -31,11 +31,10 @@ public class PE {
     public static void main(String[] argv) {
 	try {
 	    ISession session = (ISession)SessionFactory.newInstance(JSAFSystem.getDataDirectory()).createSession();
-	    if (session.connect()) {
-		PE pe = new PE(session);
-		pe.test(argv[0]);
-		session.dispose();
-	    }
+	    session.connect();
+	    PE pe = new PE(session);
+	    pe.test(argv[0]);
+	    session.dispose();
 	} catch (Exception e) {
 	    e.printStackTrace();
 	}

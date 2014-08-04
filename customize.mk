@@ -17,3 +17,4 @@ JAVA_HOME=$(TOP)/../../tools/jdk1.6.0_26
 # See http://github.org/joval/jSAF
 #
 JSAF_HOME=$(TOP)/../jSAF
+JSAF_PROVIDER_HOME=$(TOP)/../jOVAL-Commercial/components/provider/local

@@ -38,9 +38,8 @@ JSAF_COMPONENTS=$(JSAF_HOME)/components
 JSAF_CORE=$(JSAF_COMPONENTS)/facade
 JSAF_CORE_LIB=$(JSAF_CORE)/jSAF.jar
 JSAF_CORE_DEPS=$(subst $(SPACE),$(CLN),$(filter %.jar %.zip, $(wildcard $(JSAF_CORE)/$(LIBDIR)/*)))
-JSAF_PROVIDER=$(JSAF_COMPONENTS)/provider
-JSAF_PROVIDER_LIB=$(JSAF_PROVIDER)/jSAF-Provider.jar
-JSAF_PROVIDER_DEPS=$(subst $(SPACE),$(CLN),$(filter %.jar %.zip, $(wildcard $(JSAF_PROVIDER)/$(LIBDIR)/*)))
+JSAF_PROVIDER_LIB=$(JSAF_PROVIDER_HOME)/jSAF-Provider.jar
+JSAF_PROVIDER_DEPS=$(subst $(SPACE),$(CLN),$(filter %.jar %.zip, $(wildcard $(JSAF_PROVIDER_HOME)/$(LIBDIR)/*)))
 JSAF_API=$(JSAF_CORE_LIB)$(CLN)$(JSAF_CORE_DEPS)$(CLN)$(JSAF_PROVIDER_LIB)$(CLN)$(JSAF_PROVIDER_DEPS)
 
 CLASSPATH="$(CLASSLIB)$(CLN)$(LIBS)$(CLN)$(JSAF_API)$(CLN)$(SRC)"
@@ -73,5 +72,5 @@ $(BUILD)/%/:
 	mkdir -p $(subst PKG,,$@)
 
 test:
-#	$(JAVA) -Djava.library.path=$(JSAF_PROVIDER)/$(LIBDIR) -classpath $(RUNTIMECP) jpe.test.PE "%SystemRoot%\\notepad.exe"
-	$(JAVA) -Djava.library.path=$(JSAF_PROVIDER)/$(LIBDIR) -classpath $(RUNTIMECP) jpe.test.PE "C:\\Users\\solind\\Development\\repositories\\joval\\components\\jovaldi\\dist\\64\\jre\\bin\\java.exe"
+#	$(JAVA) -Djava.library.path=$(JSAF_PROVIDER_HOME)/$(LIBDIR) -classpath $(RUNTIMECP) jpe.test.PE "%SystemRoot%\\notepad.exe"
+	$(JAVA) -Djava.library.path=$(JSAF_PROVIDER_HOME)/$(LIBDIR) -classpath $(RUNTIMECP) jpe.test.PE "C:\\Program Files\\Microsoft SQL Server\\MSSQL10.SQLEXPRESS\\MSSQL\\Binn\\sqlservr.exe"
